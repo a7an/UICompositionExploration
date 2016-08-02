@@ -9,14 +9,14 @@
 
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <Grid x:Name="CircleContainer" Width="200" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,100,0,0">
+        <Grid x:Name="CircleContainer" Width="{Binding Value, ElementName=slider, Mode=TwoWay}" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,100,0,0">
             <Canvas x:Name="ShadowHost" />
             <Ellipse x:Name="CircleImage" Fill="Red"/>
         </Grid>
 
-        <Slider x:Name="slider" Margin="100,27,0,0" Maximum="1000" Value="{Binding Width, ElementName=CircleContainer, Mode=TwoWay}" HorizontalAlignment="Left" Width="1000" Height="68" VerticalAlignment="Top"/>
+        <Slider x:Name="slider" Margin="100,27,0,0" Maximum="1000" Value="200" HorizontalAlignment="Left" Width="1000" Height="68" VerticalAlignment="Top"/>
 
-        <Grid Width="300" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid Width="{Binding Value, ElementName=slider, FallbackValue=200, Mode=TwoWay}" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,400,0,0" >
             <Canvas x:Name="ShadowHost2" />
             <Rectangle x:Name="TestRectangle" Fill="#FF175754" />
         </Grid>
