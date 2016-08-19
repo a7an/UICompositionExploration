@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="UICompositionExploration.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UICompositionExploration"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:UI.Controls"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="NavigationMenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <FontIcon Grid.Column="0" 
+                          Margin="12,12,11,12" 
+                          FontFamily="Segoe MDL2 Assets" 
+                          Glyph="{Binding Icon}" Foreground="White" />
+                <TextBlock Grid.Column="1" 
+                           Text="{Binding Title}" 
+                           Foreground="White" 
+                           FontSize="16" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <controls:HamburgerMenu x:Name="HamburgerMenu" OptionsItemClick="HamburgerMenu_OptionsItemClick" PaneBackground="Gray" ItemTemplate="{StaticResource NavigationMenuItem}" ItemClick="HamburgerMenu_ItemClick">
+        <Grid>
+            <Frame x:Name="NavigationFrame" />
+        </Grid>
+    </controls:HamburgerMenu>
+</Page>
