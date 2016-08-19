@@ -153,6 +153,11 @@
       <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <HintPath>..\..\UWPCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Animations\bin\Debug\Microsoft.Toolkit.Uwp.UI.Animations.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
