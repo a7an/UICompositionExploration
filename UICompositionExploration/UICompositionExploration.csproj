@@ -147,17 +147,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UI\UI.csproj">
-      <Project>{94b2b5d3-e769-4bfe-915c-888005524f02}</Project>
-      <Name>UI</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Toolkit.Uwp.UI.Animations">
-      <HintPath>..\..\UWPCommunityToolkit\Microsoft.Toolkit.Uwp.UI.Animations\bin\Debug\Microsoft.Toolkit.Uwp.UI.Animations.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

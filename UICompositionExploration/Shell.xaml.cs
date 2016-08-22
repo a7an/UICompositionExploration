@@ -25,8 +25,6 @@ namespace UICompositionExploration
 
             HamburgerMenu.ItemsSource = navigationItems;
             HamburgerMenu.IsPaneOpen = true;
-
-            
         }
 
         private void HamburgerMenu_OptionsItemClick(object sender, ItemClickEventArgs e)
