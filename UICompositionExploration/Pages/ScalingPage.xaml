@@ -13,7 +13,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Margin="100,100,0,0">
             <interactivity:Interaction.Behaviors>
-                <behaviors:Scale x:Name="Scale"
+                <behaviors:Scale x:Name="ScaleUp"
                   ScaleX="1.5"
                   ScaleY="1.5"
                   CenterX="0"
@@ -21,12 +21,23 @@
                   Duration="1000"
                   Delay="0"
                   AutomaticallyStart="False"/>
+                <behaviors:Scale x:Name="ScaleDown"
+                  ScaleX="1"
+                  ScaleY="1"
+                  CenterX="0"
+                  CenterY="0"
+                  Duration="1000"
+                  Delay="0"
+                  AutomaticallyStart="False"/>
+                <core:EventTriggerBehavior EventName="PointerPressed">
+                    <core:CallMethodAction TargetObject="{Binding ElementName=ScaleUp}" MethodName="StartAnimation"/>
+                </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Rectangle>
-        <Button Content="Apply" VerticalAlignment="Stretch"  Width="120" Height="50" Margin="389,314,0,356">
+        <Button Content="Reset" VerticalAlignment="Stretch"  Width="120" Height="50" Margin="389,314,0,356">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Click">
-                    <core:CallMethodAction TargetObject="{Binding ElementName=Scale}" MethodName="StartAnimation"/>
+                    <core:CallMethodAction TargetObject="{Binding ElementName=ScaleDown}" MethodName="StartAnimation"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Button>
