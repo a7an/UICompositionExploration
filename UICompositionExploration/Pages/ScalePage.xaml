@@ -34,13 +34,14 @@
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Rectangle>
-        <Button Content="Reset" VerticalAlignment="Stretch"  Width="120" Height="50" Margin="389,314,0,356">
+        <Button Content="Reset" VerticalAlignment="Top"  Width="120" Height="50" Margin="100,250,0,0" d:LayoutOverrides="Height">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Click">
                     <core:CallMethodAction TargetObject="{Binding ElementName=ScaleDown}" MethodName="StartAnimation"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </Button>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Click the rectangle to scale it up." VerticalAlignment="Top" Margin="100,38,0,0"/>
 
     </Grid>
 </Page>

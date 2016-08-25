@@ -18,7 +18,6 @@
 
         <Grid Width="{Binding Value, ElementName=slider, FallbackValue=200, Mode=TwoWay}" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,400,0,0" >
             <Canvas x:Name="ShadowHost2" />
-            <Rectangle x:Name="TestRectangle" Fill="#FF175754" />
         </Grid>
 
     </Grid>
