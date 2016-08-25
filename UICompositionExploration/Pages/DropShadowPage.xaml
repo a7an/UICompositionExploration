@@ -16,10 +16,6 @@
 
         <Slider x:Name="slider" Margin="100,27,0,0" Maximum="1000" Value="200" HorizontalAlignment="Left" Width="1000" Height="68" VerticalAlignment="Top"/>
 
-        <Grid Width="{Binding Value, ElementName=slider, FallbackValue=200, Mode=TwoWay}" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,400,0,0" >
-            <Canvas x:Name="ShadowHost2" />
-        </Grid>
-
     </Grid>
 
 </Page>
