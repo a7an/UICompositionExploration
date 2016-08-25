@@ -20,9 +20,9 @@ namespace UICompositionExploration.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ScalingPage : Page
+    public sealed partial class BlurPage : Page
     {
-        public ScalingPage()
+        public BlurPage()
         {
             this.InitializeComponent();
         }

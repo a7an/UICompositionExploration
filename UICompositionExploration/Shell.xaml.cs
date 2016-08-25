@@ -19,8 +19,9 @@ namespace UICompositionExploration
 
             navigationItems = new ObservableCollection<NavigationItem>
             {
-                new NavigationItem { Page = "DropShadow", Icon = "", Title = "DropShadow" },
-                new NavigationItem { Page = "Scaling", Icon = "", Title = "Scaling" }
+                new NavigationItem { Page = NavigationPage.DropShadow, Icon = "", Title = "DropShadow" },
+                new NavigationItem { Page = NavigationPage.Scale, Icon = "", Title = "Scale" },
+                new NavigationItem { Page = NavigationPage.Blur, Icon = "", Title = "Blur" }
             };
 
             HamburgerMenu.ItemsSource = navigationItems;
@@ -39,23 +40,33 @@ namespace UICompositionExploration
             {
                 switch (menu.Page)
                 {
-                    case "DropShadow":
+                    case NavigationPage.DropShadow:
                         NavigationFrame.Navigate(typeof(DropShadowPage));
 
                         break;
 
-                    case "Scaling":
-                        NavigationFrame.Navigate(typeof(ScalingPage));
+                    case NavigationPage.Scale:
+                        NavigationFrame.Navigate(typeof(ScalePage));
                         break;
 
+                    case NavigationPage.Blur:
+                        NavigationFrame.Navigate(typeof(BlurPage));
+                        break;
                 }
             }
         }
     }
 
+    public enum NavigationPage
+    {
+        DropShadow,
+        Scale,
+        Blur
+    }
+
     public sealed class NavigationItem
     {
-        public string Page { get; set; }
+        public NavigationPage Page { get; set; }
 
         public string Title { get; set; }
 

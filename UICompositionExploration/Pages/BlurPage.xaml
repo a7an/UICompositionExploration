@@ -1,0 +1,67 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UICompositionExploration.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="UICompositionExploration.Pages.BlurPage"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="104" Margin="59,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="177"/>
+        <Rectangle Fill="#FFF4F4F5" Height="97" Margin="326,54,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="161"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="60,199,0,0" Stroke="Black" Width="218" Height="144" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150" Margin="337,193,0,0" Source="ms-appx:///Assets/Square150x150Logo.png">
+            <!--<interactivity:Interaction.Behaviors>
+                <behaviors:Blur x:Name="BlurBehavior"
+                        Value="8"
+                        Duration="0"
+                        Delay="0"
+                        AutomaticallyStart="False"/>
+                <behaviors:Blur x:Name="UnblurBehavior"
+                        Value="0"
+                        Duration="0"
+                        Delay="0"
+                        AutomaticallyStart="False"/>
+            </interactivity:Interaction.Behaviors>-->
+        </Image>
+
+        <Border BorderBrush="Black">
+            <interactivity:Interaction.Behaviors>
+                <behaviors:Blur x:Name="BlurBehavior"
+                        Value="8"
+                        Duration="1"
+                        Delay="0"
+                        AutomaticallyStart="False"/>
+                <behaviors:Blur x:Name="UnblurBehavior"
+                        Value="0"
+                        Duration="1"
+                        Delay="0"
+                        AutomaticallyStart="False"/>
+            </interactivity:Interaction.Behaviors>
+        </Border>
+        <Button x:Name="button" Content="Blur" Height="49" Margin="60,0,0,189" VerticalAlignment="Bottom" Width="125">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Click">
+                    <core:CallMethodAction 
+                            TargetObject="{Binding ElementName=BlurBehavior}" 
+                            MethodName="StartAnimation"/>
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
+        <Button x:Name="button1" Content="Unblur" HorizontalAlignment="Left" Height="49" Margin="240,0,0,189" VerticalAlignment="Bottom" Width="143">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Click">
+                    <core:CallMethodAction 
+                            TargetObject="{Binding ElementName=UnblurBehavior}" 
+                            MethodName="StartAnimation"/>
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+        </Button>
+
+    </Grid>
+</Page>
