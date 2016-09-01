@@ -15,20 +15,8 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="104" Margin="59,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="177"/>
         <Rectangle Fill="#FFF4F4F5" Height="97" Margin="326,54,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="161"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Margin="60,199,0,0" Stroke="Black" Width="218" Height="144" VerticalAlignment="Top"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150" Margin="337,193,0,0" Source="ms-appx:///Assets/Square150x150Logo.png">
-            <!--<interactivity:Interaction.Behaviors>
-                <behaviors:Blur x:Name="BlurBehavior"
-                        Value="8"
-                        Duration="0"
-                        Delay="0"
-                        AutomaticallyStart="False"/>
-                <behaviors:Blur x:Name="UnblurBehavior"
-                        Value="0"
-                        Duration="0"
-                        Delay="0"
-                        AutomaticallyStart="False"/>
-            </interactivity:Interaction.Behaviors>-->
-        </Image>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="150" Margin="337,193,0,0" Source="ms-appx:///Assets/Square150x150Logo.png"/>
+
 
         <Border BorderBrush="Black">
             <interactivity:Interaction.Behaviors>
