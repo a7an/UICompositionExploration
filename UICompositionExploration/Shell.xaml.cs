@@ -21,7 +21,8 @@ namespace UICompositionExploration
             {
                 new NavigationItem { Page = NavigationPage.DropShadow, Icon = "", Title = "DropShadow" },
                 new NavigationItem { Page = NavigationPage.Scale, Icon = "", Title = "Scale" },
-                new NavigationItem { Page = NavigationPage.Blur, Icon = "", Title = "Blur" }
+                new NavigationItem { Page = NavigationPage.Blur, Icon = "", Title = "Blur" },
+                new NavigationItem { Page = NavigationPage.ScrollGradient, Icon = "", Title = "Scroll Gradient" }
             };
 
             HamburgerMenu.ItemsSource = navigationItems;
@@ -52,6 +53,11 @@ namespace UICompositionExploration
                     case NavigationPage.Blur:
                         NavigationFrame.Navigate(typeof(BlurPage));
                         break;
+
+
+                    case NavigationPage.ScrollGradient:
+                        NavigationFrame.Navigate(typeof(ScrollGradient));
+                        break;
                 }
             }
         }
@@ -61,7 +67,8 @@ namespace UICompositionExploration
     {
         DropShadow,
         Scale,
-        Blur
+        Blur,
+        ScrollGradient
     }
 
     public sealed class NavigationItem

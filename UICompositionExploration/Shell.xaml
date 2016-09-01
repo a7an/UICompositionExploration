@@ -25,8 +25,8 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
-    <controls:HamburgerMenu x:Name="HamburgerMenu" OptionsItemClick="HamburgerMenu_OptionsItemClick" PaneBackground="Gray" ItemTemplate="{StaticResource NavigationMenuItem}" ItemClick="HamburgerMenu_ItemClick">
-        <Grid>
+    <controls:HamburgerMenu x:Name="HamburgerMenu" OptionsItemClick="HamburgerMenu_OptionsItemClick" PaneBackground="#FF262626" ItemTemplate="{StaticResource NavigationMenuItem}" ItemClick="HamburgerMenu_ItemClick" Foreground="White">
+        <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
             <Frame x:Name="NavigationFrame" />
         </Grid>
     </controls:HamburgerMenu>

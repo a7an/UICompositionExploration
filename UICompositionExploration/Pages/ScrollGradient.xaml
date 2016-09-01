@@ -1,0 +1,218 @@
+﻿<Page
+    x:Class="UICompositionExploration.Pages.ScrollGradient"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UICompositionExploration.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="ScrollViewerStyle" TargetType="ScrollViewer">
+            <Setter Property="HorizontalScrollMode" Value="Auto"/>
+            <Setter Property="VerticalScrollMode" Value="Auto"/>
+            <Setter Property="IsHorizontalRailEnabled" Value="True"/>
+            <Setter Property="IsVerticalRailEnabled" Value="True"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="ZoomMode" Value="Disabled"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ScrollingIndicatorStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition From="MouseIndicator" To="NoIndicator">
+                                            <Storyboard>
+                                                <FadeOutThemeAnimation BeginTime="0:0:3" TargetName="ScrollBarSeparator"/>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="VerticalScrollBar">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:3">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ScrollingIndicatorMode>None</ScrollingIndicatorMode>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="HorizontalScrollBar">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:3">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ScrollingIndicatorMode>None</ScrollingIndicatorMode>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                        <VisualTransition From="TouchIndicator" To="NoIndicator">
+                                            <Storyboard>
+                                                <FadeOutThemeAnimation TargetName="ScrollBarSeparator"/>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="VerticalScrollBar">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ScrollingIndicatorMode>None</ScrollingIndicatorMode>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="HorizontalScrollBar">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                                        <DiscreteObjectKeyFrame.Value>
+                                                            <ScrollingIndicatorMode>None</ScrollingIndicatorMode>
+                                                        </DiscreteObjectKeyFrame.Value>
+                                                    </DiscreteObjectKeyFrame>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="NoIndicator">
+                                        <Storyboard>
+                                            <FadeOutThemeAnimation TargetName="ScrollBarSeparator"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="TouchIndicator">
+                                        <Storyboard>
+                                            <FadeOutThemeAnimation TargetName="ScrollBarSeparator"/>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="VerticalScrollBar">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <ScrollingIndicatorMode>TouchIndicator</ScrollingIndicatorMode>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="HorizontalScrollBar">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <ScrollingIndicatorMode>TouchIndicator</ScrollingIndicatorMode>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="MouseIndicator">
+                                        <Storyboard>
+                                            <FadeInThemeAnimation TargetName="ScrollBarSeparator"/>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="VerticalScrollBar">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <ScrollingIndicatorMode>MouseIndicator</ScrollingIndicatorMode>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="IndicatorMode" Storyboard.TargetName="HorizontalScrollBar">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <ScrollingIndicatorMode>MouseIndicator</ScrollingIndicatorMode>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ScrollContentPresenter x:Name="ScrollContentPresenter" Grid.ColumnSpan="2" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" Grid.RowSpan="2"/>
+                                <Grid Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                                <Border x:Name="TopSoftGradient" BorderBrush="Black" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="100">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="1"/>
+                                            <GradientStop Color="Black"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <Border x:Name="BottomSoftGradient" BorderBrush="Black" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Grid.RowSpan="2" Height="100">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0"/>
+                                            <GradientStop Color="Black" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                                <ScrollBar x:Name="VerticalScrollBar" Grid.Column="1" HorizontalAlignment="Right" IsTabStop="False" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{TemplateBinding VerticalOffset}" ViewportSize="{TemplateBinding ViewportHeight}"/>
+                                <ScrollBar x:Name="HorizontalScrollBar" IsTabStop="False" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{TemplateBinding HorizontalOffset}" ViewportSize="{TemplateBinding ViewportWidth}"/>
+                                <Border x:Name="ScrollBarSeparator" Background="{ThemeResource ScrollViewerScrollBarSeparatorBackground}" Grid.Column="1" Grid.Row="1"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#FF1A2D33">
+        <ScrollViewer Style="{StaticResource ScrollViewerStyle}" Padding="40,0">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultrices elit sit amet feugiat maximus. Sed sed convallis turpis, a molestie lacus. Maecenas in elit diam. Aenean arcu lorem, pharetra id ligula eu, sodales posuere ligula. Ut a nisi mauris. Etiam eget efficitur augue, ut fermentum ex. Suspendisse luctus orci vel ante euismod varius. Nam maximus rhoncus ante, nec pharetra orci tristique et. Ut mi ex, rutrum egestas dictum quis, dapibus ut metus.
+
+Nullam sit amet elementum metus, in efficitur arcu. Quisque maximus non arcu sit amet suscipit. Ut volutpat lobortis dolor sed aliquam. Donec at facilisis lorem, eget tincidunt massa. Curabitur hendrerit mi sed purus volutpat, eu ullamcorper urna tempus. Donec pharetra leo ut nunc ultrices tristique. Sed vestibulum libero sed dictum tristique. Vivamus dictum mi eget rutrum condimentum. Morbi turpis nunc, sagittis quis risus ut, malesuada faucibus elit. Vestibulum gravida et orci vel cursus. Nam venenatis feugiat tortor, vel convallis nibh volutpat ac.
+
+Curabitur ipsum purus, laoreet quis mauris quis, ullamcorper maximus lorem. Cras molestie turpis ut nisl ullamcorper posuere. Integer id ligula ac lacus vulputate ornare quis nec ipsum. Cras malesuada arcu sed feugiat varius. Phasellus pretium condimentum tellus eu commodo. Donec cursus tortor vel metus imperdiet tempus. Sed ligula neque, congue a tellus nec, suscipit volutpat leo. In tincidunt mauris risus, nec facilisis sapien ullamcorper vitae. Nunc vitae malesuada justo. Etiam et augue metus. Aliquam pretium enim semper lacus laoreet, dignissim accumsan justo rutrum. Nullam sed sapien augue.
+
+Praesent tincidunt, libero et consequat vulputate, turpis arcu aliquet lorem, at porta odio dolor a ex. Fusce tortor orci, bibendum id turpis in, gravida molestie urna. Nullam fermentum sodales urna eu venenatis. Nullam lobortis ligula viverra efficitur elementum. In hac habitasse platea dictumst. Donec imperdiet condimentum sagittis. Maecenas quis velit quis urna sagittis ornare.
+
+Aliquam rutrum lorem tempor quam maximus, at consectetur ex imperdiet. Sed in convallis lacus. In tristique metus non aliquet dapibus. Sed leo diam, porttitor at iaculis vitae, bibendum id nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec fermentum eget sem id semper. Ut cursus bibendum velit vitae semper. Vivamus porttitor tortor et massa gravida, et tempor ligula interdum. Integer fermentum, leo auctor mollis aliquet, nisi nisi semper sapien, ut pharetra massa neque quis tortor. Praesent non erat risus. Nam molestie pretium nunc, congue dapibus ipsum finibus eget. Pellentesque eget mauris vitae purus rutrum consectetur.
+
+Etiam sollicitudin vestibulum diam tincidunt tristique. Donec condimentum lobortis ex quis laoreet. Praesent dui ex, varius id purus non, laoreet consequat nunc. Etiam sit amet mi ultricies, rutrum purus et, varius purus. Sed et posuere odio. Donec fringilla, dui ac bibendum consequat, mi libero placerat nisl, vitae dapibus ipsum felis non neque. Sed sollicitudin malesuada nulla, consequat lobortis mauris auctor in. Ut euismod nunc metus, gravida bibendum mauris volutpat id. Cras cursus ipsum ac arcu dictum luctus. Ut eget diam sapien. Curabitur justo augue, posuere non augue ut, bibendum tempus purus. Fusce vehicula mattis ligula. Integer orci tortor, vestibulum nec lectus quis, imperdiet pretium tellus. Vivamus vitae pharetra metus. Fusce ut dui at velit faucibus iaculis. Phasellus sed enim volutpat, faucibus enim ut, maximus nisl.
+
+Vivamus risus velit, lobortis non vestibulum eget, consequat eget tellus. Suspendisse sagittis dui a finibus hendrerit. Nulla suscipit ultricies nunc, vel gravida purus pulvinar sed. Sed vulputate, purus at malesuada congue, velit erat sollicitudin lectus, ut vehicula purus nisl eu mauris. Nulla in cursus augue. Ut dui leo, fringilla in lacus et, cursus consectetur orci. Vivamus ultricies suscipit tortor sed tincidunt. Etiam ut velit ut libero mollis dictum. Curabitur et libero pulvinar, molestie orci a, scelerisque lacus.
+
+Sed non rhoncus lectus, id scelerisque est. Pellentesque nec velit tristique, ultrices turpis eu, rutrum nisl. Morbi nulla erat, tristique ut vulputate ac, pretium sed justo. Donec tempus feugiat metus, tincidunt tempus nisi rutrum sed. Sed ut justo quis lacus tempor mattis ac tempor tellus. Mauris in diam tempor, pulvinar augue et, egestas diam. Cras ullamcorper condimentum odio a placerat. In nec urna id libero suscipit pretium. Nam mollis suscipit dui at dapibus. Vestibulum ipsum diam, condimentum a convallis vitae, suscipit in tortor. Quisque ultricies ex metus. Cras ultrices et tellus vel mollis. Sed porta eros vitae felis faucibus efficitur.
+
+Aliquam erat volutpat. Donec cursus urna vitae quam aliquam, non auctor lorem efficitur. Cras blandit pellentesque pretium. Maecenas eu feugiat diam. Nunc in lacus quis urna semper volutpat vulputate in felis. Vivamus rutrum id nulla lobortis posuere. Suspendisse aliquam consectetur lacus a malesuada. Phasellus vestibulum auctor augue, eu auctor dui semper non. Nulla nisl ipsum, consectetur ut mollis vitae, fermentum vitae eros. Suspendisse sed dolor fringilla, ornare erat nec, molestie sem. Cras ac gravida arcu. Proin eros lacus, finibus ac suscipit sed, facilisis ac est. Maecenas non rutrum ligula, eget scelerisque erat. Sed pulvinar id erat et eleifend.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ut interdum mi, quis ultrices nunc. Pellentesque iaculis odio eget venenatis tincidunt. Nulla at sodales sem. Nunc placerat fringilla scelerisque. Sed ut magna lorem. Nulla varius a nulla nec pharetra. Maecenas leo ante, suscipit et dapibus ut, vulputate eget ante. Nullam sit amet varius mi. Suspendisse sem sapien, imperdiet interdum posuere a, ornare a massa. Aliquam velit urna, ullamcorper et lorem consectetur, elementum vulputate felis. Nunc lacus erat, tristique ac nisi vel, varius tristique ex. Morbi eros ante, pellentesque sed nibh in, sodales porta nulla. Etiam interdum, arcu at egestas tempor, arcu libero fermentum urna, sed consectetur lectus est eget lacus.
+
+Nulla dui eros, pellentesque eget pulvinar in, dapibus nec urna. Pellentesque condimentum eros ac quam commodo sagittis. Nulla sed nunc nibh. Nullam blandit purus augue, sed fringilla libero blandit eu. Nam sed erat ut nulla malesuada posuere volutpat eu ex. Donec nec vehicula est. Cras a libero eget dui sodales posuere.
+
+Proin efficitur metus eget elementum mattis. Praesent vel dui quam. Nulla ullamcorper rutrum diam quis blandit. Sed sit amet ipsum efficitur arcu lobortis euismod et sed ligula. Mauris odio mi, iaculis vel eros sit amet, aliquet lacinia eros. Sed efficitur velit ornare, finibus ipsum id, ultrices felis. Curabitur magna nunc, varius ac tristique eget, euismod quis nulla. Nullam sagittis in dui non semper. Donec tristique vehicula pretium. In nec ultricies nisi. Curabitur sed lacus vitae nisi consectetur vehicula. Aenean pulvinar porta sapien eu tempor. Nunc eros quam, vestibulum ac elementum et, interdum nec enim. Etiam urna augue, vestibulum eu facilisis eget, eleifend eu dolor. Proin ac bibendum lorem.
+
+Nulla porttitor molestie risus. Etiam ullamcorper facilisis iaculis. Cras placerat interdum nunc, vel auctor odio congue sed. Sed mi neque, pulvinar sit amet ipsum ut, viverra volutpat ex. Suspendisse pretium, neque et hendrerit pharetra, purus eros eleifend enim, ac tempus ligula nibh nec quam. Cras lobortis augue eu auctor suscipit. Curabitur quis porttitor massa. Donec aliquet lectus quis egestas vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec aliquam, risus at luctus luctus, turpis enim finibus tortor, ullamcorper elementum orci enim vel odio. Nulla odio nulla, scelerisque eu sagittis ac, imperdiet sit amet diam. In lobortis neque tempus, consectetur dui eget, sollicitudin massa. Nullam fringilla lorem tortor, vel hendrerit sem tempor non. Proin lectus risus, finibus ac lacus in, finibus vulputate dui. Nam massa lorem, pellentesque sit amet nisi eu, sollicitudin rhoncus lectus. Proin feugiat magna pulvinar dui lacinia, eget sollicitudin nisl finibus.
+
+Nam scelerisque, metus at iaculis auctor, orci ipsum fringilla eros, in egestas tortor purus eu mauris. Fusce metus urna, posuere ac ante vel, venenatis tristique odio. Nulla sollicitudin urna et maximus mattis. Nam a ligula sit amet dolor suscipit aliquet eu sit amet enim. Suspendisse nec euismod arcu. Proin erat quam, imperdiet at egestas et, malesuada ut nisl. Sed consequat consectetur finibus. Donec tempus elit id lobortis condimentum. Etiam tincidunt eros dui, placerat maximus augue cursus at. Vivamus a metus euismod, ornare ante a, scelerisque dolor. Nullam id nibh mauris. Aenean pretium bibendum nulla, ut volutpat lectus commodo in. Duis suscipit scelerisque nulla vitae tempor.
+
+Phasellus ut ante in eros auctor tincidunt ac sit amet nulla. Duis vitae rhoncus purus, eu euismod elit. Vivamus dictum urna in arcu iaculis imperdiet sit amet nec sapien. Donec semper, metus sed porttitor commodo, quam elit mattis diam, vitae molestie metus lacus pulvinar turpis. Aenean quis hendrerit felis. Duis ullamcorper lacus sed lectus dictum, sit amet molestie augue gravida. Proin rhoncus eleifend sapien. Ut scelerisque tellus id nibh fermentum, imperdiet varius massa tincidunt. Duis quam ante, facilisis sed odio id, bibendum hendrerit libero. Phasellus id diam in lectus dictum fermentum vel ut tortor. Maecenas convallis finibus justo, id suscipit risus pretium pretium. Donec in sem porttitor, rhoncus felis id, iaculis felis. Curabitur dignissim faucibus ultricies.
+
+Proin luctus egestas enim, at placerat arcu faucibus sit amet. Ut sed dignissim enim. Vestibulum vel malesuada tellus. Aliquam eget varius lorem, id bibendum justo. Donec eget neque tortor. Integer tristique, augue sed maximus ornare, arcu odio hendrerit felis, eu lobortis risus quam suscipit leo. Fusce auctor sem lacus, eget rutrum lectus malesuada vitae. Phasellus sit amet turpis vulputate, dictum ipsum ac, tempus sapien. Quisque id purus mattis, ultricies lacus sed, finibus lectus. Donec suscipit eros eu odio porttitor molestie. Sed tristique aliquet lectus non consequat. Nam ipsum turpis, viverra eget nisl vehicula, scelerisque molestie mauris. Vivamus posuere convallis augue, in molestie nunc. Phasellus volutpat erat orci, sed facilisis odio placerat eu. Nullam congue ipsum neque, vel dapibus tellus condimentum eget.
+
+Nulla ut leo feugiat, pretium nibh in, laoreet justo. Mauris imperdiet maximus est sed mollis. Proin aliquet interdum diam, in ornare nibh faucibus et. Maecenas porta sollicitudin nibh, vel pharetra nisl scelerisque et. Sed maximus, purus a maximus lobortis, justo risus varius erat, id porta nulla ex vehicula sem. Proin consectetur augue orci, vel mollis metus iaculis ut. Pellentesque a lacus dolor.
+
+Duis vel sem euismod, porttitor libero a, porttitor arcu. Proin viverra mi non mi venenatis vehicula. Sed ultricies dolor sed dictum vulputate. Donec eleifend ullamcorper tellus in aliquam. Nunc enim nisl, mollis ac varius sit amet, ultrices at neque. Donec euismod ultricies orci interdum sagittis. Etiam sed rutrum ipsum. Nunc nisl velit, accumsan quis consectetur sed, elementum cursus sapien. Sed libero urna, gravida sit amet mollis quis, lobortis at massa. Nullam ac tellus metus. Sed in aliquam sapien. Suspendisse at lacinia neque.
+
+Donec ornare velit risus, id finibus sem rutrum et. Praesent imperdiet risus dictum enim dictum viverra. Suspendisse condimentum eu mi ac fermentum. Nam vel odio ac enim congue vulputate tincidunt a nibh. Cras egestas mattis porta. Nulla quis lacus et massa congue aliquet. Praesent ultricies eget erat id volutpat. Nam semper accumsan arcu, at tincidunt ipsum luctus sed. Aliquam dictum in lorem sit amet accumsan. Aliquam fermentum sem ac laoreet venenatis. Suspendisse efficitur congue justo, eu pulvinar est suscipit nec. Praesent auctor malesuada ex, vel consectetur diam venenatis ac. Vivamus quis fringilla magna. Nulla facilisi. Quisque non lobortis nisi, sed iaculis neque.
+
+Curabitur rhoncus dictum lacus, non consectetur est lacinia non. Duis mollis lobortis eros in ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse molestie sem quis turpis efficitur, ac venenatis velit viverra. Etiam et dignissim nisl. Donec quis fermentum sem. Aliquam erat volutpat. Aenean laoreet urna ac malesuada cursus. Donec luctus, risus eget facilisis laoreet, felis massa efficitur felis, id tristique est sem non dui. Proin massa elit, gravida a pharetra nec, convallis eget turpis. Nullam malesuada elit eu nisl porttitor, faucibus vehicula ligula sollicitudin. Curabitur ac feugiat enim.
+
+Morbi efficitur arcu et euismod fermentum. Donec convallis augue eu vestibulum aliquam. Nulla mattis odio ut urna feugiat, sed lobortis diam tempor. Nam dui eros, porttitor ac hendrerit nec, hendrerit in mi. Nulla vel odio justo. Suspendisse pulvinar velit sit amet sagittis ultrices. Fusce at diam id dui efficitur porttitor. Quisque ornare felis sapien, et aliquam turpis elementum non. Suspendisse potenti. Mauris bibendum eu dolor sit amet sagittis. Pellentesque posuere, justo nec molestie vehicula, velit nisl mollis urna, lacinia elementum mi justo non tellus.
+
+Curabitur ultricies ut arcu nec scelerisque. Donec quis neque ipsum. Praesent vitae sem tincidunt, consequat tellus a, tincidunt tellus. Nunc euismod ac massa at blandit. Nam iaculis urna ut ultrices mollis. Fusce maximus hendrerit odio ac pharetra. Sed elementum, tortor sit amet molestie elementum, arcu erat vulputate augue, placerat elementum enim dui nec arcu. Nam cursus, erat ut finibus pellentesque, sem augue placerat urna, quis accumsan urna massa non tortor. Nullam venenatis purus sit amet laoreet pharetra. Phasellus sit amet quam massa. Maecenas consequat quam sit amet nunc aliquam, in euismod sem lobortis.
+
+Nullam venenatis tellus ac turpis tempor, vitae pretium libero dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed luctus interdum tellus, at consectetur arcu tempus ac. Integer blandit, arcu vel finibus malesuada, urna diam cursus eros, in fringilla tortor metus eu quam. Suspendisse potenti. Fusce congue pretium odio eu faucibus. Vestibulum semper consequat augue, nec mollis tortor vulputate vitae. Maecenas eget tortor dolor. Aenean sodales et ex at vehicula. Nulla quis est vel magna interdum consectetur. Sed scelerisque sem sit amet bibendum aliquet.
+
+Morbi scelerisque velit ac mi efficitur laoreet. Maecenas condimentum, mi non blandit convallis, tellus erat molestie nunc, in sagittis velit libero quis dui. Nunc tristique ornare eros eu vestibulum. Nam iaculis vel odio porttitor commodo. Phasellus orci dolor, sollicitudin quis maximus sed, tristique nec lacus. Pellentesque vestibulum, lorem quis congue commodo, nulla neque vehicula sapien, a tincidunt eros lectus vel odio. Aliquam sodales feugiat massa, vel eleifend libero viverra ac. Donec vulputate odio in justo dapibus suscipit. In dictum nec est ut maximus. Fusce condimentum lorem metus, ac cursus diam eleifend finibus. Donec vel semper dolor. Vestibulum enim velit, laoreet vitae orci ac, vehicula convallis mi. Maecenas eget blandit libero.
+
+Sed cursus lectus arcu, a commodo massa aliquam ac. Sed posuere sem sit amet volutpat fringilla. Morbi at mi in nunc dignissim auctor quis non magna. Sed auctor nec metus vel commodo. Aliquam sit amet eleifend purus. Aenean a pretium diam. Nunc blandit erat ut diam luctus, at hendrerit enim interdum.
+
+Etiam consequat tortor a nunc eleifend commodo. Quisque ac suscipit metus. Curabitur porta a orci a tempus. Vestibulum et sapien at magna fermentum lobortis vel ut orci. Phasellus dictum leo sed massa accumsan euismod. Quisque maximus nibh ut porttitor dapibus. Phasellus lobortis dui facilisis, mollis turpis ut, ultricies nulla. Duis feugiat quis turpis vel porttitor.
+
+Donec faucibus eu risus a congue. Morbi a lectus cursus nisl maximus lacinia a quis odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum aliquet, neque nec eleifend ornare, nibh urna aliquam ligula, volutpat laoreet urna odio sit amet urna. Vestibulum ut sapien at nisi tempus tincidunt vitae at est. Phasellus mollis maximus lectus nec vehicula. Donec in fermentum nisi. Duis lacinia lacinia eros sit amet accumsan. In pulvinar, dui in ornare rutrum, nulla arcu laoreet sem, ac luctus sapien ipsum ut nulla. Cras venenatis velit ac tellus feugiat, non efficitur nulla tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam sed aliquam ex, ut vestibulum est. Integer sed tristique turpis. Sed nec tellus sit amet nulla gravida aliquam sit amet vitae arcu. Sed at libero ante.
+
+Vestibulum ac lorem dui. Duis a efficitur lectus, dignissim cursus magna. Donec venenatis ante vel neque mollis iaculis. Maecenas sapien erat, eleifend vitae mi et, vestibulum porttitor dui. Etiam mattis eleifend tempor. In accumsan non nulla eu ornare. Proin et scelerisque arcu. Fusce consectetur erat lectus, non interdum tortor varius non.
+
+Morbi volutpat ultricies velit, sit amet suscipit ipsum. Maecenas facilisis tortor vitae sodales scelerisque. Mauris convallis erat felis, ut consequat mauris malesuada ut. Proin ante lectus, vehicula et ipsum tempus, venenatis pellentesque massa. Donec diam augue, mollis non nisl et, maximus porttitor ligula. Etiam sit amet volutpat sapien. Vivamus rutrum dolor dui, et varius velit ornare at. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Etiam eget nunc placerat, vestibulum nulla quis, consectetur libero. Sed placerat nisl ante, sit amet viverra nisi varius eget. Phasellus gravida lectus ut nulla dignissim interdum. Mauris ipsum nunc, feugiat non commodo nec, suscipit sed est. Cras lacinia neque eget leo sollicitudin, id auctor enim auctor. Aliquam consectetur odio at dignissim aliquam. Vestibulum enim dolor, eleifend a ullamcorper eu, sodales a ligula. Nullam cursus tellus non enim hendrerit, eget vehicula elit accumsan. Curabitur ultrices egestas orci, accumsan suscipit enim pellentesque non. Sed commodo eget arcu finibus bibendum. Nam at lectus in felis ornare vulputate quis at est. Aenean tempus suscipit urna et egestas. Aenean lobortis nulla sit amet lectus egestas consequat. Morbi vitae sapien sit amet urna molestie accumsan ac vitae dolor. Duis tempus sodales ligula, eget lacinia diam iaculis non. Sed dignissim lacus sit amet lectus mollis, eu ullamcorper nulla imperdiet." Foreground="White" FontSize="18.667"/>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

@@ -18,7 +18,7 @@
                   ScaleY="1.5"
                   CenterX="50"
                   CenterY="50"
-                  Duration="1000"
+                  Duration="400"
                   Delay="0"
                   AutomaticallyStart="False"/>
                 <behaviors:Scale x:Name="ScaleDown"
@@ -26,7 +26,7 @@
                   ScaleY="1"
                   CenterX="50"
                   CenterY="50"
-                  Duration="1000"
+                  Duration="400"
                   Delay="0"
                   AutomaticallyStart="False"/>
                 <core:EventTriggerBehavior EventName="PointerPressed">
